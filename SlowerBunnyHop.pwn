@@ -19,7 +19,7 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 	{
 		new Float:vx,Float:vy,Float:vz;
 		GetPlayerVelocity(playerid,vx,vy,vz);
-		if(vz > 0.1 || vz < 0.1) return 1;
+		if(vz > 0.1 || vz < -0.1) return 1;
 		InSprung[playerid] = 1;
 		new Float:FacingAngle;
 		GetPlayerFacingAngle(playerid,FacingAngle);
