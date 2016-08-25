@@ -28,7 +28,7 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 		VektorBlickrichtung[3] = 0;
 		TimerIDSprung = SetTimerEx("FunktionSprungVerlangsamen",10,true,"i",playerid);
 		SetTimer("KillTimerSprung",200,false);
-		SetTimerEx("FunktionInSprung",900,false,"i",playerid);
+		SetTimerEx("FunktionInSprung",100,false,"i",playerid);
 	}
 	return 1;
 }
@@ -47,6 +47,9 @@ public KillTimerSprung()
 
 public FunktionInSprung(playerid)
 {
-	InSprung[playerid] = 0;
+	new Float:vx,Float:vy,Float:vz;
+	GetPlayerVelocity(playerid,vx,vy,vz);
+	if(vz < 0.1 && vz > -0.1)InSprung[playerid] = 0;
+	else(SetTimerEx("FunktionInSprung",100,false,"i",playerid));
 	return 1;
 }
