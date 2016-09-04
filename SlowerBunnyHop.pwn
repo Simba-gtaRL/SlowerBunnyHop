@@ -17,7 +17,7 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 {
 	new Float:vx,Float:vy,Float:vz;
 	GetPlayerVelocity(playerid,vx,vy,vz);
-	if (PRESSED(KEY_JUMP) && (vy > 0.01 || vy <-0.01) && (vx > 0.01 || vx <-0.01) && IsPlayerInAnyVehicle(playerid) == 0 && InSprung[playerid] == 0)
+	if (PRESSED(KEY_JUMP) && (vy > 0.01 || vy <-0.01 || vx > 0.01 || vx <-0.01) && IsPlayerInAnyVehicle(playerid) == 0 && InSprung[playerid] == 0)
 	{
 		if(vz > 0.1 || vz < -0.1) return 1;
 		InSprung[playerid] = 1;
