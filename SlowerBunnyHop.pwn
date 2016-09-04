@@ -15,7 +15,7 @@ new TimerIDSprung;
 
 public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 {
-	if(PRESSED(KEY_JUMP|KEY_SPRINT|KEY_UP) && IsPlayerInAnyVehicle(playerid) == 0 && InSprung[playerid] == 0)
+	if(PRESSED(KEY_JUMP|KEY_UP) && IsPlayerInAnyVehicle(playerid) == 0 && InSprung[playerid] == 0)
 	{
 		new Float:vx,Float:vy,Float:vz;
 		GetPlayerVelocity(playerid,vx,vy,vz);
