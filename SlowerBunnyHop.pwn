@@ -15,10 +15,10 @@ new TimerIDSprung;
 
 public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 {
-	if(PRESSED(KEY_JUMP|KEY_UP) && IsPlayerInAnyVehicle(playerid) == 0 && InSprung[playerid] == 0)
+	new Float:vx,Float:vy,Float:vz;
+	GetPlayerVelocity(playerid,vx,vy,vz);
+	if (PRESSED(KEY_JUMP) && (vy > 0.01 || vy <-0.01) && (vx > 0.01 || vx <-0.01) && IsPlayerInAnyVehicle(playerid) == 0 && InSprung[playerid] == 0)
 	{
-		new Float:vx,Float:vy,Float:vz;
-		GetPlayerVelocity(playerid,vx,vy,vz);
 		if(vz > 0.1 || vz < -0.1) return 1;
 		InSprung[playerid] = 1;
 		new Float:FacingAngle;
