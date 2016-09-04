@@ -15,7 +15,7 @@ new TimerIDSprung;
 
 public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 {
-	if(PRESSED(KEY_JUMP) && IsPlayerInAnyVehicle(playerid) == 0 && InSprung[playerid] == 0)
+	if(PRESSED(KEY_JUMP|KEY_SPRINT) && IsPlayerInAnyVehicle(playerid) == 0 && InSprung[playerid] == 0)
 	{
 		new Float:vx,Float:vy,Float:vz;
 		GetPlayerVelocity(playerid,vx,vy,vz);
@@ -28,7 +28,7 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 		VektorBlickrichtung[3] = 0;
 		TimerIDSprung = SetTimerEx("FunktionSprungVerlangsamen",10,true,"i",playerid);
 		SetTimer("KillTimerSprung",200,false);
-		SetTimerEx("FunktionInSprung",100,false,"i",playerid);
+		SetTimerEx("FunktionInSprung",10,false,"i",playerid);
 	}
 	return 1;
 }
@@ -50,6 +50,6 @@ public FunktionInSprung(playerid)
 	new Float:vx,Float:vy,Float:vz;
 	GetPlayerVelocity(playerid,vx,vy,vz);
 	if(vz < 0.1 && vz > -0.1)InSprung[playerid] = 0;
-	else(SetTimerEx("FunktionInSprung",100,false,"i",playerid));
+	else(SetTimerEx("FunktionInSprung",10,false,"i",playerid));
 	return 1;
 }
