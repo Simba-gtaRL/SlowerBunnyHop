@@ -49,7 +49,7 @@ public FunktionInSprung(playerid)
 {
 	new Float:vx,Float:vy,Float:vz;
 	GetPlayerVelocity(playerid,vx,vy,vz);
-	if(vz < 0.01 && vz > -0.01)InSprung[playerid] = 0;
+	if(vz < 0.1 && vz > -0.1)InSprung[playerid] = 0;
 	else(SetTimerEx("FunktionInSprung",10,false,"i",playerid));
 	return 1;
 }
